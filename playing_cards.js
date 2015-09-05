@@ -1,26 +1,26 @@
 // class for a playing card
 function Card(suit, number) {
-	this.suit = suit;
-	this.number = number;
+    this.suit = suit;
+    this.number = number;
 }
 
 Card.prototype.toString = function() {
-	return this.suit + this.number;
+    return this.suit + this.number;
 }
 
 // class for a deck of playing cards
 function Deck() {
-	this.cards = [];
-	var suits = ['D', 'C', 'H', 'S'];
-	for (s = 0; s < 4; s++) {
-		for (n = 1; n < 14; n++) {
-			this.cards.push(new Card(suits[s], n));
-		}
-	}
+    this.cards = [];
+    var suits = ['D', 'C', 'H', 'S'];
+    for (s = 0; s < 4; s++) {
+        for (n = 1; n < 14; n++) {
+            this.cards.push(new Card(suits[s], n));
+        }
+    }
 }
 
 Deck.prototype.toString = function() {
-	return this.cards.toString();
+    return this.cards.toString();
 }
 
 // in place deck shuffling
