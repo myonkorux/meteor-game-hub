@@ -8,6 +8,7 @@ Card.prototype.toString = function() {
     return this.suit + this.number;
 }
 
+
 // class for a deck of playing cards
 function Deck() {
     this.cards = [];

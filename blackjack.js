@@ -1,3 +1,17 @@
+// ------------------------------------------------
+// Framework Interaction
+// ------------------------------------------------
+
+// gets game status from framework
+function retrieveState() {
+
+}
+
+// returns game status to framework
+function returnState() {
+
+}
+
 // class representing a blackjack hand
 // replace this with a database reference/request
 function Hand() {
@@ -5,6 +19,11 @@ function Hand() {
     this.sum = 0;
     this.ace = false;
 }
+
+
+// ------------------------------------------------
+// Class Functions
+// ------------------------------------------------
 
 Hand.prototype.toString = function() {
     return this.cards.toString();
@@ -32,6 +51,11 @@ Hand.prototype.addCard = function(card) {
     $('#card' + this.length()).attr('src', 'classic-cards/' + card.toString() + '.png');
     $('#card_score').html(getScore(this));
 }
+
+
+// ------------------------------------------------
+// Game Functions
+// ------------------------------------------------
 
 // deal 2 cards to hand
 function deal(deck, hand) {
@@ -70,26 +94,32 @@ function checkBlackjack(hand) {
     }
 }
 
-// reset game buttons
+// disable game buttons (ui)
 function endGame() {
     $('#hit_button').prop('disabled', true);
     $('#stay_button').prop('disabled', true);
     $('#reset_button').prop('disabled', false);
 }
 
-// remove all cards from table
+// remove all cards from table (ui)
 function clearCards(hand) {
     for (i = 1; i < hand.length() + 1; i++) {
         $('#card' + i).attr('src', '');
     }
 }
 
+// resets game (ui)
 function resetGame() {
     $('#deal_button').prop('disabled', false);
     $('#reset_button').prop('disabled', true);
     $('#card_score').html('0');
     $('#hand_status').html('');
 }
+
+
+// ------------------------------------------------
+// Game Loop
+// ------------------------------------------------
 
 // event listeners to run game
 $(document).ready(function() {
